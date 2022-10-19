@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rewards/pages/home.dart';
+import 'package:rewards/pages/navigation.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() {
@@ -7,7 +7,7 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => Main(),
-      '/home' : (context) => Home(),
+      '/navigation' : (context) => Navigation(),
     }
   ));
 }
@@ -24,7 +24,7 @@ class _MainState extends State<Main>  {
 
   void Homepage() async {
     Future.delayed(Duration(milliseconds: 1500), () {
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/navigation');
     });
   }
 
