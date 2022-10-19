@@ -27,31 +27,32 @@ class _NavigationState extends State<Navigation> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [Container(
-        decoration: const BoxDecoration(
+    return Container(
+        decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/bgimage.png'), fit: BoxFit.cover,)),),
-        Scaffold(
-        body: pages[currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedFontSize: 0,
-          selectedFontSize: 0,
-          onTap: onTap,
-          currentIndex: currentIndex,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey.withOpacity(0.5),
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          items: [
-            BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.apps_rounded)),
-            BottomNavigationBarItem(label: 'Wallet', icon: Icon(Icons.account_balance_wallet_rounded)),
-            BottomNavigationBarItem(label: 'Profile', icon: Icon(Icons.person))
-          ],
+              image: AssetImage('assets/bgimage.png'), fit: BoxFit.cover,)
         ),
-      )]
+        child: Scaffold(
+          body: pages[currentIndex],
+          backgroundColor: Colors.transparent,
+          bottomNavigationBar: BottomNavigationBar(
+            unselectedFontSize: 0,
+            selectedFontSize: 0,
+            onTap: onTap,
+            currentIndex: currentIndex,
+            selectedItemColor: Colors.blue,
+            unselectedItemColor: Colors.grey.withOpacity(0.5),
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            elevation: 0,
+            backgroundColor: Colors.black45.withOpacity(0.7),
+            items: [
+              BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.apps_rounded)),
+              BottomNavigationBarItem(label: 'Wallet', icon: Icon(Icons.account_balance_wallet_rounded)),
+              BottomNavigationBarItem(label: 'Profile', icon: Icon(Icons.person))
+            ],
+          ),
+        )
       );
 
   }

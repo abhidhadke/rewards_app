@@ -11,7 +11,8 @@ class _WalletState extends State<Wallet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: SafeArea(child: Text('Wallet')),
+      child: SafeArea(
+          child: Card(child: Text('Wallet'))),
     );
   }
 }

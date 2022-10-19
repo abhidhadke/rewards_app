@@ -11,7 +11,8 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: SafeArea(child: Text('Profile')
+        child: SafeArea(
+            child: Card(child: Text('Profile'))
       ),
     );
   }

@@ -16,11 +16,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/bgimage.png'), fit: BoxFit.cover,)),
-        child: Scaffold(
+    return Scaffold(
           backgroundColor: Colors.transparent,
           body: SafeArea(
               child: SingleChildScrollView(
@@ -105,12 +101,8 @@ class _HomeState extends State<Home> {
               ),
 
             ),
-        ),
-
-
-
-
-
-    );
+        );
   }
+  
+
 }
