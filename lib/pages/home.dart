@@ -24,6 +24,7 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     SizedBox(height: 90.0,),
                     SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
