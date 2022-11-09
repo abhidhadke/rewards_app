@@ -12,6 +12,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
 
   @override
@@ -22,75 +27,75 @@ class _HomeState extends State<Home> {
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 90.0,),
+                    const SizedBox(height: 90.0,),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
+                        children: const <Widget>[
                           Card(
                             margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                             child: Padding(
-                              padding: const EdgeInsets.all(12.0),
+                              padding: EdgeInsets.all(12.0),
                               child: Text("Offer 1 here!!"),
                             ),
                           ),
                           Card(
                             margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                             child: Padding(
-                              padding: const EdgeInsets.all(12.0),
+                              padding: EdgeInsets.all(12.0),
                               child: Text("Offer 2 here!!"),
                             ),
                           ),
                           Card(
                             margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                             child: Padding(
-                              padding: const EdgeInsets.all(12.0),
+                              padding: EdgeInsets.all(12.0),
                               child: Text("Offer 3 here!!"),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height: 10.0,),
+                    const SizedBox(height: 10.0,),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blueAccent,
-                            minimumSize: Size(90, 50),
-                            padding: EdgeInsets.symmetric(horizontal: 30),
+                            minimumSize: const Size(90, 50),
+                            padding: const EdgeInsets.symmetric(horizontal: 30),
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(50)),
                             )
                         ),
-                        onPressed: () async {
-                          await LaunchApp.openApp(
-                              androidPackageName: 'com.google.android.apps.nbu.paisa.user',
-                              openStore: true);
+                        onPressed: () {
+                          _showBottomOption();
+                          showModalBottomSheet(context: context, builder: (context) => _showBottomOption());
+
                         },
-                        child: Text(
+                        child: const Text(
                             "Pay Now!",
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold)
                         )
                     ),
-                    Card(
+                    const Card(
                       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(12.0),
                         child: Text("Offer 4 here!!"),
                       ),
                     ),
-                    Card(
+                    const Card(
                       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(12.0),
                         child: Text("Offer 5 here!!"),
                       ),
                     ),
-                    Card(
+                    const Card(
                       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(12.0),
                         child: Text("Offer 6 here!!"),
                       ),
                     ),
@@ -103,6 +108,121 @@ class _HomeState extends State<Home> {
 
             ),
         );
+  }
+
+
+  _bottomSheetButton({ bool isClose = false, String? src, required String label, required Function()? onTap, required Color clr}){
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 4),
+        height: 55,
+        width: MediaQuery.of(context).size.width*0.9,
+        decoration: BoxDecoration(
+            border: Border.all(
+                color: clr,
+                width: 2
+            ),
+            borderRadius: BorderRadius.circular(20),
+            color: clr
+        ),
+        child: Center(child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            isClose ? const Icon(Icons.close_rounded) : CircleAvatar(
+              backgroundImage: NetworkImage(src!),
+              radius: 20,
+            ),
+            const SizedBox(width: 8,),
+            Text(label,),
+          ],
+        ),)),
+      );
+  }
+  _showBottomOption(){
+    return ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: Container(
+            padding: const EdgeInsets.only(top: 4),
+            height: MediaQuery.of(context).size.height*0.50,
+            color: Colors.white,
+            child: Column(
+              children: [
+                Container(
+                  height: 6,
+                  width: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[400],
+                  ),
+                ),
+                const Spacer(),
+                _bottomSheetButton(
+                  label: "Google Pay",
+                  onTap: () async {
+                    await LaunchApp.openApp(
+                        androidPackageName: 'com.google.android.apps.nbu.paisa.user',
+                        openStore: true);
+                  },
+                  clr: Colors.blueAccent,
+                  src: 'https://play-lh.googleusercontent.com/HArtbyi53u0jnqhnnxkQnMx9dHOERNcprZyKnInd2nrfM7Wd9ivMNTiz7IJP6-mSpwk=w240-h480-rw'
+                 ),
+                _bottomSheetButton(
+                  label: "PayTM",
+                  onTap: () async {
+                    await LaunchApp.openApp(
+                        androidPackageName: 'net.one97.paytm',
+                        openStore: true);
+                  },
+                  clr: Colors.blueAccent,
+                  src: 'https://play-lh.googleusercontent.com/6_Qan3RBgpJUj0C2ct4l0rKKVdiJgF6vy0ctfWyQ7aN0lBjs78M-1cQUONQSVeo2jfs=s48-rw'
+                ),
+                _bottomSheetButton(
+                  label: "Phone Pe",
+                  onTap: () async {
+                    await LaunchApp.openApp(
+                        androidPackageName: 'com.phonepe.app',
+                        openStore: true);
+                  },
+                  clr: Colors.blueAccent,
+                  src: 'https://play-lh.googleusercontent.com/6iyA2zVz5PyyMjK5SIxdUhrb7oh9cYVXJ93q6DZkmx07Er1o90PXYeo6mzL4VC2Gj9s=w240-h480-rw'
+                ),
+                _bottomSheetButton(
+                  label: "BHIM App",
+                  onTap: () async {
+                    await LaunchApp.openApp(
+                        androidPackageName: 'in.org.npci.upiapp',
+                        openStore: true);
+                  },
+                  clr: Colors.blueAccent,
+                  src: 'https://play-lh.googleusercontent.com/B5cNBA15IxjCT-8UTXEWgiPcGkJ1C07iHKwm2Hbs8xR3PnJvZ0swTag3abdC_Fj5OfnP=s48-rw'
+                ),
+                _bottomSheetButton(
+                  label: "Amazon Pay",
+                  onTap: () async {
+                    await LaunchApp.openApp(
+                        androidPackageName: 'in.amazon.mShop.android.shopping',
+                        openStore: true);
+                  },
+                  clr: Colors.blueAccent,
+                  src: 'https://cdn-icons-png.flaticon.com/512/5968/5968220.png'
+                ),
+                _bottomSheetButton(
+                  label: "Close",
+                  onTap: (){
+                    debugPrint("Tapped here");
+                    Navigator.pop(context);
+                  },
+                  clr: Colors.redAccent,
+                  isClose: true,
+                  ),
+                const SizedBox(height: 10,)
+
+              ],
+            ),
+          ),
+        );
+
   }
   
 
