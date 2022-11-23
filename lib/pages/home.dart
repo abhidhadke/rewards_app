@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
                 height: 5,
               ),
               Container(
-                alignment: Alignment(-1,0.2,),
+                alignment: Alignment.center,
                 child: Image(
                 image: AssetImage('assets/dhruv saini.jpeg'),
                 height: 200,
@@ -61,22 +61,22 @@ class _HomeState extends State<Home> {
               const Card(
                 margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(50.0, 80, 200, 0),
-                  child: Text("Offers Coming Soon!!"),
+                  padding: EdgeInsets.fromLTRB(160.0, 30, 150, 30),
+                  child: Text("Offer Coming Soon!!"),
                 ),
               ),
               const Card(
                 margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(50.0, 80, 200, 0),
-                  child: Text("Offers Coming Soon!!"),
+                  padding: EdgeInsets.fromLTRB(160.0, 30, 150, 30),
+                  child: Text("Offer Coming Soon!!"),
                 ),
               ),
               const Card(
                 margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(50.0, 80, 200, 0),
-                  child: Text("Offers Coming Soon!!"),
+                  padding: EdgeInsets.fromLTRB(160.0, 30, 150, 30),
+                  child: Text("Offer Coming Soon!!"),
                 ),
               ),
               const SizedBox(

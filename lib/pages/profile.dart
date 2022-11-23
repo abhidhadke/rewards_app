@@ -12,7 +12,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Container(
         child: SafeArea(
-            child: Card(child: Text('Profile'))
+            child: Card(child: Text('Coming Soon'))
       ),
     );
   }

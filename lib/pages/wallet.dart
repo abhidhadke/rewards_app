@@ -12,7 +12,7 @@ class _WalletState extends State<Wallet> {
   Widget build(BuildContext context) {
     return Container(
       child: SafeArea(
-          child: Card(child: Text('Wallet'))),
+          child: Card(child: Text('Coming Soon'))),
     );
   }
 }
